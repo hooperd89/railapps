@@ -5,29 +5,20 @@ from django.views.generic import (View,TemplateView,
                                 CreateView,DeleteView,
                                 UpdateView)
 from django.urls import reverse, reverse_lazy
+from django.shortcuts import render
+from .models import Occupation, Work
+
 # Create your views here.
 
 
 
-class OverView(TemplateView):
-    template_name = 'wall_base.html'
+class IndexView(TemplateView):
+    template_name = 'wall_index.html'
 
-class OccoCreateView(CreateView):
-    fields = ("name","principal","location")
-    model = models.Occupation
+class WorkListView(ListView):
+    model = Work
+    # context_object_name = 'work_list.html'
+    # queryset = Work.objects.all()
 
-class WorkCreateView(CreateView):
-    fields = ("name","principal","location")
-    model = models.Work
-
-class OccoUpdateView(UpdateView):
-    fields = ("name","principal")
-    model = models.Occupation
-
-class WorkDeleteView(DeleteView):
-    model = models.Work
-    success_url = reverse_lazy("basic_app:list")
-
-class OccoDeleteView(DeleteView):
-    model = models.Occupation
-    success_url = reverse_lazy("basic_app:list")
+class WorkDetailView(DetailView):
+    model = Work
