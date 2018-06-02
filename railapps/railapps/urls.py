@@ -21,16 +21,8 @@ from . import views
 urlpatterns = [
     path("", views.HomePage.as_view(), name="index"),
     path("admin/", admin.site.urls),
-    path("the_wall/", include("the_wall.urls", namespace="the_wall")),
+    path("the_wall/", include("the_wall.urls")),
     path("about/", views.AboutPage.as_view(), name="about"),
-
+    path("accounts/", include('django.contrib.auth.urls')),
 
 ]
-
-
-    # url(r"^test/$", views.TestPage.as_view(), name="test"),
-    # url(r"^thanks/$", views.ThanksPage.as_view(), name="thanks"),
-    # url(r"^accounts/", include("accounts.urls", namespace="accounts")),
-    # url(r"^accounts/", include("django.contrib.auth.urls")),
-    # url(r"^posts/", include("posts.urls", namespace="posts")),
-    # url(r"^groups/",include("groups.urls", namespace="groups")),

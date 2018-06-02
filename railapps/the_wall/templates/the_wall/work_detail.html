@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Work: {{ work.work_information}}</h1><br>
+
+    <p><strong>Start:</strong> {{ work.start_chainage }}km</a></p>
+    <p><strong>End:</strong> {{ work.end_chainage }}km</p>
+    <p><strong>Discipline:</strong> {{ work.discipline }}</p>
+    <p><strong>Additional Information:</strong> {{ work.additional_details }}</p>
+    <p><strong>Occupation:</strong> <a href="#">{{ work.occupation_details }}</a></p>
+
+    <button type="button" class="btn btn-danger"><a href=""></a>Delete</button>
+
+
+  </div>
+</div>
+
+{% endblock %}
