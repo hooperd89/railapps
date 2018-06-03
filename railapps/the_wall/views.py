@@ -12,12 +12,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 # Create your views here.
 
-
+# Summary/ Overveiew View
 
 class IndexView(LoginRequiredMixin,TemplateView):
     login_url = '/accounts/login'
     redirect_field_name = ''
     template_name = 'wall_index.html'
+
+# Work views
 
 class WorkListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login'
@@ -31,21 +33,52 @@ class WorkDetailView(LoginRequiredMixin,DetailView):
     model = Work
     paginate_by = 50
 
-class OccoListView(ListView):
-    model = Occupation
-
-class OccoDetailView(DetailView):
-    model = Occupation
-
-class WorkCreateView(CreateView):
+class WorkCreateView(LoginRequiredMixin,CreateView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
     model = Work
     fields ='__all__'
 
-class WorkUpdateView(UpdateView):
+class WorkUpdateView(LoginRequiredMixin,UpdateView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
     model = Work
     fields ='__all__'
 
-
-class WorkDeleteView(DeleteView):
+class WorkDeleteView(LoginRequiredMixin,DeleteView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
     model = Work
+    success_url = reverse_lazy('the_wall:work_list')
+
+# Occupation Views
+
+class OccupationListView(LoginRequiredMixin, ListView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    model = Occupation
+    paginate_by = 50
+
+class OccupationDetailView(LoginRequiredMixin,DetailView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    model = Occupation
+    paginate_by = 50
+
+class OccupationCreateView(LoginRequiredMixin,CreateView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    model = Occupation
+    fields ='__all__'
+
+class OccupationUpdateView(LoginRequiredMixin,UpdateView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    model = Occupation
+    fields ='__all__'
+
+class OccupationDeleteView(LoginRequiredMixin,DeleteView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    model = Occupation
     success_url = reverse_lazy('the_wall:work_list')

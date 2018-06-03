@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+<div class="jumbotron">
+
+  <h1>Upcoming Occupations</h1> <br>
+    <ol>
+        <table class="table table-hover">
+          <thead class='table-primary'>
+            <tr>
+              <th scope="col">Details</th>
+              <th scope="col">Region</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Occupation Type</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for occupation in occupation_list %}
+            <tr class="table-default">
+              <th scope="row"> <a href="{{occupation.id}}/">{{occupation.system_line}}</a></th>
+              <td>{{occupation.rail_area}}</td>
+              <td>{{occupation.occupation_start_date}}</td>
+              <td>{{occupation.occupation_end_date}}</td>
+              <td>{{occupation.occupation_type}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </ol>
+    <a class="btn btn-primary btn-lg" href="{% url 'the_wall:occupation_create' %}" role="button">Create</a>
+
+
+  </div>
+
+</div>
+{% endblock %}

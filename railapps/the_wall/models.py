@@ -9,7 +9,7 @@ class Occupation(models.Model):
     occupation_start_date = models.DateTimeField()
     occupation_end_date = models.DateTimeField()
     occupation_type = models.CharField(max_length = 50, help_text='Enter the Occupation Type e.g. BLU')
-    AREA_CHOICE = (('w', 'Western Region'),('n', 'North/North-East Region'),('c', 'Central & Eastern Region'))
+    AREA_CHOICE = (('Western Region', 'Western Region'),('North/North-East Region', 'North/North-East Region'),('Central & Eastern Region', 'Central & Eastern Region'))
     rail_area = models.CharField(max_length = 50,choices=AREA_CHOICE, help_text='Enter the Rail Area Type e.g. North/North-East')
 
     def __str__(self):
@@ -17,17 +17,17 @@ class Occupation(models.Model):
 
     def get_absolute_url(self):
         # Returns the url to access a detail record for this occo.
-        return reverse('occupation_detail', args=[str(self.id)])
+        return reverse('the_wall:occupation_detail', args=[str(self.id)])
 
     class Meta:
         ordering = ['occupation_start_date']
 
+
+
 class Work(models.Model):
     start_chainage = models.DecimalField(max_digits = 6, decimal_places = 3)
     end_chainage = models.DecimalField(max_digits = 6, decimal_places = 3)
-
     DISCIPLINE_CHOICE = (('Civil', 'Civil'),('Track', 'Track'),('Facilities', 'Facilities'),('Signals', 'Signals'),)
-
     discipline = models.CharField(max_length = 100, choices=DISCIPLINE_CHOICE, help_text='Enter the discipline e.g. Civil')
     work_information = models.CharField(max_length = 255)
     additional_details = models.CharField(max_length = 255, blank=True)
@@ -37,6 +37,7 @@ class Work(models.Model):
         return self.work_information
 
     def get_absolute_url(self):
+        # Returns the url to access a detail record for the work.
         return reverse('the_wall:work_detail', args=[str(self.id)])
 
     class Meta:

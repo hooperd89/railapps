@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Occupation: {{ occupation.system_line}}</h1><br>
+    <h3>Rail Area: {{ occupation.rail_area}}</h3>
+
+    <p><strong>Start Date:</strong> {{ occupation.occupation_start_date }}</a></p>
+    <p><strong>End Date:</strong> {{ occupation.occupation_end_date }}</p>
+    <p><strong>Occupation Type:</strong> {{ occupation.occupation_type}}</p>
+    <p><strong>Occupation NOI:</strong> {{ occupation.occupation_noi }}</p>
+
+    <a class="btn btn-warning btn-lg" href="{% url 'the_wall:occupation_update' occupation.id %}" role="button">Edit</a>
+    <a class="btn btn-danger btn-lg" href="{% url 'the_wall:occupation_delete' occupation.id %}" role="button">Delete</a>
+
+
+  </div>
+</div>
+
+{% endblock %}

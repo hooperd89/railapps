@@ -12,7 +12,9 @@
     <p><strong>Additional Information:</strong> {{ work.additional_details }}</p>
     <p><strong>Occupation:</strong> <a href="#">{{ work.occupation_details }}</a></p>
 
-    <button type="button" class="btn btn-danger"><a href=""></a>Delete</button>
+    <a class="btn btn-warning btn-lg" href="{% url 'the_wall:work_update' work.id %}" role="button">Edit</a>
+    <a class="btn btn-danger btn-lg" href="{% url 'the_wall:work_delete' work.id %}" role="button">Delete</a>
+
 
 
   </div>
