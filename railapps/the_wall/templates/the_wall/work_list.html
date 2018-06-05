@@ -14,7 +14,8 @@
               <th scope="col">Start Chainage</th>
               <th scope="col">End Chainage</th>
               <th scope="col">Occupation Details</th>
-              <th scope="col">T - Minus (Weeks)</th>
+              <th scope="col">Work Start Date</th>
+              <th scope="col">Work End Date</th>
 
             </tr>
           </thead>
@@ -25,7 +26,9 @@
               <td>{{work.start_chainage}}km</td>
               <td>{{work.end_chainage}}km</td>
               <td>{{work.occupation_details}}</td>
-              <td>{{work.occupation_start_date}}</td>
+              <td>{{work.works_start_date}}</td>
+              <td>{{work.works_end_date}}</td>
+
             </tr>
             {% endfor %}
           </tbody>

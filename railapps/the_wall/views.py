@@ -21,6 +21,12 @@ class IndexView(LoginRequiredMixin,TemplateView):
 
 # Work views
 
+class TMinusView(LoginRequiredMixin,TemplateView):
+    login_url = '/accounts/login'
+    redirect_field_name = ''
+    template_name = 'the_wall/t_minus.html'
+
+
 class WorkListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login'
     redirect_field_name = ''

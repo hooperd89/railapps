@@ -6,8 +6,8 @@ from django.urls import reverse, reverse_lazy
 class Occupation(models.Model):
     occupation_noi = models.PositiveIntegerField()
     system_line = models.CharField(max_length = 100, help_text='Enter the System Line e.g. Sunbury to Bendigo.')
-    occupation_start_date = models.DateTimeField()
-    occupation_end_date = models.DateTimeField()
+    occupation_start_date = models.DateTimeField(help_text='Format is YYYY-MM-DD HH-MM-SS')
+    occupation_end_date = models.DateTimeField(help_text='Format is YYYY-MM-DD HH-MM-SS')
     occupation_type = models.CharField(max_length = 50, help_text='Enter the Occupation Type e.g. BLU')
     AREA_CHOICE = (('Western Region', 'Western Region'),('North/North-East Region', 'North/North-East Region'),('Central & Eastern Region', 'Central & Eastern Region'))
     rail_area = models.CharField(max_length = 50,choices=AREA_CHOICE, help_text='Enter the Rail Area Type e.g. North/North-East')
@@ -32,6 +32,9 @@ class Work(models.Model):
     work_information = models.CharField(max_length = 255)
     additional_details = models.CharField(max_length = 255, blank=True)
     occupation_details = models.ForeignKey('Occupation', on_delete = models.CASCADE)
+    works_start_date = models.DateField(help_text='Format is YYYY-MM-DD')
+    works_end_date = models.DateField(help_text='Format is YYYY-MM-DD')
+
 
     def __str__(self):
         return self.work_information

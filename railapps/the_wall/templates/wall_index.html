@@ -3,13 +3,14 @@
 {% block content %}
 
 <div class="jumbotron container">
-  <h1 class="display-3">The Wall!</h1>
-  <p class="lead">This is a reproduction of the wall within ****</p>
+  <h1 class="display-3">The Wall!</h1><br>
+  <p class="lead">This is a reproduction of the wall for ease of online access.</p>
   <hr class="my-4">
-  <p>Click below to see a list of the upcoming works!</p>
+  <p>Click below to see a list of the upcoming works and occupations.</p><br>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="{% url 'the_wall:work_list' %}" role="button">Works</a>
     <a class="btn btn-primary btn-lg" href="{% url 'the_wall:occupation_list' %}" role="button">Occupations</a>
+
 
   </p>
 </div>

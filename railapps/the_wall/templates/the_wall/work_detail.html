@@ -4,16 +4,17 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Work: {{ work.work_information}}</h1><br>
+    <h1>{{ work.work_information}}</h1><br>
 
     <p><strong>Start:</strong> {{ work.start_chainage }}km</a></p>
     <p><strong>End:</strong> {{ work.end_chainage }}km</p>
     <p><strong>Discipline:</strong> {{ work.discipline }}</p>
     <p><strong>Additional Information:</strong> {{ work.additional_details }}</p>
     <p><strong>Occupation:</strong> <a href="#">{{ work.occupation_details }}</a></p>
-
+<br>
     <a class="btn btn-warning btn-lg" href="{% url 'the_wall:work_update' work.id %}" role="button">Edit</a>
     <a class="btn btn-danger btn-lg" href="{% url 'the_wall:work_delete' work.id %}" role="button">Delete</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'the_wall:work_list' %}" role="button">Back</a>
 
 
 
