@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
 
 <div class="jumbotron">
 
@@ -16,6 +16,8 @@
               <th scope="col">Occupation Details</th>
               <th scope="col">Work Start Date</th>
               <th scope="col">Work End Date</th>
+              <th scope="col">T-Minus</th>
+
 
             </tr>
           </thead>
@@ -28,6 +30,8 @@
               <td>{{work.occupation_details}}</td>
               <td>{{work.works_start_date}}</td>
               <td>{{work.works_end_date}}</td>
+              <td>{{work.works_start_date|timeuntil}}</td>
+
 
             </tr>
             {% endfor %}
