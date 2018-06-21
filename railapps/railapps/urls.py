@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("the_wall/", include("the_wall.urls")),
     path("about/", views.AboutPage.as_view(), name="about"),
-    path("accounts/", include('django.contrib.auth.urls')),
+    path("accounts/", include('allauth.urls')),
+    path("railadjustment/", views.RailAdj.as_view(), name="railadjustment"),
 
 ]

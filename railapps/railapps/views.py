@@ -7,3 +7,6 @@ class AboutPage(TemplateView):
 
 class HomePage(TemplateView):
     template_name = "index.html"
+
+class RailAdj(TemplateView):
+    template_name = "RAJ.html"

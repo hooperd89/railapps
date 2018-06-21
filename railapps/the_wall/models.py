@@ -21,6 +21,10 @@ class Occupation(models.Model):
 
     class Meta:
         ordering = ['occupation_start_date']
+        permissions = (
+        ('view_occo','View Occupation'),
+        )
+
 
 
 
@@ -45,3 +49,6 @@ class Work(models.Model):
 
     class Meta:
         ordering = ['start_chainage']
+        permissions = (
+        ('view_work','View Work'),
+        )

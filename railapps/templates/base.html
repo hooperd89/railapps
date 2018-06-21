@@ -24,14 +24,18 @@
                 <a class="nav-link" href="{% url 'the_wall:wall-index' %}">The Wall<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'railadjustment' %}">Rail Adjustment Calculator</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
+
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <li class="nav-link">User: {{ user.get_username }}</li>
-                <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+                <a class="nav-link" href="{% url 'account_logout'%}?next={{request.path}}">Logout</a>
                 {% else %}
-                <a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a>
+                <a class="nav-link" href="{% url 'account_login'%}?next={{request.path}}">Login</a>
               </li>
               {% endif %}
             </ul>

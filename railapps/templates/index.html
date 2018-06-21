@@ -4,14 +4,6 @@
   <h1 class="display-3">Hello and welcome to railapps.</h1>
   <p class="lead">This is a simple website to try and merge python/django coding with rail applications .</p>
   <hr class="my-4">
-{% if user.is_authenticated %}
-<h1>Thankyou for signing in.</h1>
-{% else %}
-<p>Sign-up to view all the current railapps!</p>
-<p class="lead">
-  <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
-</p>
-{% endif %}
   <p>Click below to learn more about what is being used.</p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">About</a>
