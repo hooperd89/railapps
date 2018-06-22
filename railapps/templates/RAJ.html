@@ -2,8 +2,35 @@
 {% block content %}
 <div class="jumbotron container">
 <h1>Rail Adjustment Calculator</h1>
-
+<form oninput="evalue.value=Math.round(parseFloat(linear.value)*parseFloat(Module.value)*(38-parseFloat(temp.value)));
+              result.value=Math.round(parseFloat(evalue.value)+parseFloat(weldsize.value))-parseFloat(railgap.value)" >
+  <label for="Module">Module length</label>
+  <input type="text" name="Module" value="">
+  <br>
+  <label for="temp">Rail Temperature</label>
+  <input type="text" name="temp" value="">
+  <br>
+  <label for="linear">Co-efficient of Linear Expansion</label>
+  <select class="" name="linear">
+    <option value="0.0117">0.0117</option>
+    <option value="0.0115">0.0115</option>
+  </select>
+  <br>
+  <label for="evalue">E Value = </label>
+  <output name="evalue" for=''></output>
+  <br>
+  <label for="railgap">Rail Gap</label>
+  <input type="text" name="railgap" value="">
+  <br>
+  <label for="weldsize">Weldsize</label>
+  <input type="text" name="weldsize" value="25">
+  <br>
+  <label for="result">Rail Adjustment = </label>
+  <output name="result" for=''></output>mm
+</form>
+<br>
+<p>For -ve values add in steel.</p>
+<p>For +ve values take out steel.</p>
 
 </div>
-
 {% endblock %}
